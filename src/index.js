@@ -207,24 +207,7 @@ class PDFViewer extends React.Component {
     const NavigationElement = navigation
 
     const pdf = (
-      <PDF
-        document={document}
-        withCredentials={withCredentials}
-        password={password}
-        pageNum={page}
-        scale={scale}
-        rotation={rotationAngle}
-        changePage={(idx) => this.handleThumbnailClick(idx)}
-        pageCount={(num) => this.getPageCount(num)}
-        showThumbnail={showThumbnail}
-        protectContent={protectContent}
-        watermark={watermark}
-        alert={alert}
-        canvasCss={canvasCss}
-      />
-    )
-
-    let nav = null
+      let nav = null
     let hideNavbarDisplay = hideNavbar
     if (externalInput) {
       hideNavbarDisplay = true
@@ -274,6 +257,22 @@ class PDFViewer extends React.Component {
           />
         )
     }
+      <PDF
+        document={document}
+        withCredentials={withCredentials}
+        password={password}
+        pageNum={page}
+        scale={scale}
+        rotation={rotationAngle}
+        changePage={(idx) => this.handleThumbnailClick(idx)}
+        pageCount={(num) => this.getPageCount(num)}
+        showThumbnail={showThumbnail}
+        protectContent={protectContent}
+        watermark={watermark}
+        alert={alert}
+        canvasCss={canvasCss}
+      />
+    )
 
     return (
       <div className={css ? css : 'container text-center'}>
