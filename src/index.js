@@ -277,6 +277,19 @@ class PDFViewer extends React.Component {
 
     return (
       <div className={css ? css : 'container text-center'}>
+        <div style={{ display: this.state.isReady ? 'block' : 'none' }}>
+          {navbarOnTop ? (
+            <div>
+              <div>{nav}</div>
+              <div onClick={onDocumentClick}>{pdf}</div>
+            </div>
+          ) : (
+            <div>
+              <div onClick={onDocumentClick}>{pdf}</div>
+              <div>{nav}</div>
+            </div>
+          )}
+        </div>
         <div style={{ display: this.state.isReady ? 'none' : 'block' }}>
           <div
             className={canvasCss ? canvasCss : ''}
@@ -290,19 +303,6 @@ class PDFViewer extends React.Component {
             }>
             {loader ? loader : <Loader />}
           </div>
-        </div>
-        <div style={{ display: this.state.isReady ? 'block' : 'none' }}>
-          {navbarOnTop ? (
-            <div>
-              <div>{nav}</div>
-              <div onClick={onDocumentClick}>{pdf}</div>
-            </div>
-          ) : (
-            <div>
-              <div onClick={onDocumentClick}>{pdf}</div>
-              <div>{nav}</div>
-            </div>
-          )}
         </div>
       </div>
     )
